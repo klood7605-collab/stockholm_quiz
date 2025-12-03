@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" style="font-family: sans-serif; background:#F7F9FC;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Stockholm District Matches Your Personality?</title>
+<style>
+    body {
+        max-width: 680px; 
+        margin: auto; 
+        padding: 20px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+    }
+    h1 {
+        text-align: center; 
+        color: #005BAC;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        font-size: 2.2rem;
+    }
+    .question {
+        margin-bottom: 25px; 
+        background: white; 
+        padding: 20px; 
+        border-radius: 12px;
+        border-left: 6px solid #FCD116;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+    }
+    .question:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    }
+    button {
+        background: linear-gradient(135deg, #005BAC 0%, #003366 100%);
+        color: white; 
+        border: none; 
+        padding: 14px 28px;
+        border-radius: 10px; 
+        cursor: pointer; 
+        font-size: 18px;
+        font-weight: bold;
+        display: block; 
+        margin: 30px auto;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 91, 172, 0.2);
+    }
+    button:hover {
+        background: linear-gradient(135deg, #003366 0%, #002244 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 91, 172, 0.3);
+    }
+    #result {
+        margin-top: 30px; 
+        padding: 25px; 
+        background: white; 
+        border-radius: 15px;
+        font-size: 18px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-top: 4px solid #FCD116;
+        animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .district-image {
+        width: 100%; 
+        height: 280px; 
+        object-fit: cover;
+        border-radius: 12px; 
+        margin-top: 20px;
+        border: 4px solid #FCD116;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .result-title {
+        color: #005BAC;
+        font-size: 28px;
+        margin-bottom: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .result-description {
+        color: #333;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 18px;
+        padding: 0 10px;
+    }
+    .district-name {
+        color: #005BAC;
+        font-weight: bold;
+        font-size: 24px;
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(0, 91, 172, 0.1);
+        border-radius: 6px;
+    }
+    .question p {
+        font-weight: bold;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 18px;
+        color: #005BAC;
+    }
+    input[type="radio"] {
+        margin: 10px 8px 10px 0;
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+    label {
+        cursor: pointer;
+        display: block;
+        padding: 8px 0;
+        font-size: 16px;
+        transition: color 0.2s ease;
+        border-radius: 6px;
+        padding-left: 10px;
+    }
+    label:hover {
+        background: rgba(252, 209, 22, 0.1);
+        color: #005BAC;
+    }
+    .score-display {
+        text-align: center;
+        color: #666;
+        margin-top: 15px;
+        font-size: 15px;
+        padding: 10px;
+        background: rgba(0, 91, 172, 0.05);
+        border-radius: 8px;
+    }
+    .restart-btn {
+        background: linear-gradient(135deg, #FCD116 0%, #e6b800 100%);
+        color: #003366;
+        margin-top: 10px;
+    }
+    .restart-btn:hover {
+        background: linear-gradient(135deg, #e6b800 0%, #cc9900 100%);
+        color: #002244;
+    }
+</style>
+</head>
+<body>
+
+<h1>🗺️ Which Stockholm District Matches Your Personality?</h1>
+
+<div id="quiz">
+
+<div class="question">
+    <p>1. What best describes your overall style?</p>
+    <label><input type="radio" name="q1" value="Södermalm"> 🎨 Artistic and a bit alternative</label>
+    <label><input type="radio" name="q1" value="Östermalm"> 👑 Elegant and luxurious</label>
+    <label><input type="radio" name="q1" value="Gamla Stan"> 🏛️ Calm and classic</label>
+    <label><input type="radio" name="q1" value="Norrmalm"> 🏢 Modern and practical</label>
+</div>
+
+<div class="question">
+    <p>2. Where would you prefer to spend your day?</p>
+    <label><input type="radio" name="q2" value="Gamla Stan"> 🏰 Quiet, historical spots</label>
+    <label><input type="radio" name="q2" value="Norrmalm"> 🛍️ Busy streets and shopping areas</label>
+    <label><input type="radio" name="q2" value="Östermalm"> ☕ Stylish cafés and luxury shops</label>
+    <label><input type="radio" name="q2" value="Södermalm"> 🎵 Creative neighborhoods with music and art</label>
+</div>
+
+<div class="question">
+    <p>3. What usually catches your attention first?</p>
+    <label><input type="radio" name="q3" value="Östermalm"> 💎 High-end aesthetics</label>
+    <label><input type="radio" name="q3" value="Gamla Stan"> 🏛️ Historical architecture</label>
+    <label><input type="radio" name="q3" value="Södermalm"> 🎭 Unique and artistic elements</label>
+    <label><input type="radio" name="q3" value="Norrmalm"> 🚦 Fast-paced city vibe</label>
+</div>
+
+<div class="question">
+    <p>4. What social atmosphere feels most comfortable for you?</p>
+    <label><input type="radio" name="q4" value="Södermalm"> 😌 Laid-back and expressive</label>
+    <label><input type="radio" name="q4" value="Östermalm"> 👔 Sophisticated and polished</label>
+    <label><input type="radio" name="q4" value="Gamla Stan"> 🤗 Warm and intimate</label>
+    <label><input type="radio" name="q4" value="Norrmalm"> ⚡ Energetic and fast-moving</label>
+</div>
+
+<div class="question">
+    <p>5. What type of place would you choose to live in?</p>
+    <label><input type="radio" name="q5" value="Gamla Stan"> 🏡 Narrow streets and cozy homes</label>
+    <label><input type="radio" name="q5" value="Östermalm"> 🏙️ High-end apartments</label>
+    <label><input type="radio" name="q5" value="Södermalm"> 🎪 Creative, cultural neighborhoods</label>
+    <label><input type="radio" name="q5" value="Norrmalm"> 🏬 Central and modern spaces</label>
+</div>
+
+<div class="question">
+    <p>6. How do you prefer spending your weekends?</p>
+    <label><input type="radio" name="q6" value="Södermalm"> 🖼️ Discovering new art spots</label>
+    <label><input type="radio" name="q6" value="Gamla Stan"> 🚶‍♀️ Relaxing walks and small boutiques</label>
+    <label><input type="radio" name="q6" value="Östermalm"> 🍽️ Fine dining and upscale outings</label>
+    <label><input type="radio" name="q6" value="Norrmalm"> 🎡 Exploring city events or malls</label>
+</div>
+
+<button onclick="getResult()">🌟 Show My Stockholm Match 🌟</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+function getResult() {
+    let answers = [];
+    for (let i=1; i<=6; i++){
+        let q = document.querySelector('input[name="q'+i+'"]:checked');
+        if(q) answers.push(q.value);
+    }
+
+    if (answers.length < 6){
+        document.getElementById("result").innerHTML = 
+            '<div style="color: #d32f2f; text-align: center; padding: 25px; background: #ffebee; border-radius: 10px; border: 2px solid #ffcdd2;">' +
+            '<p style="font-size: 20px; margin: 0;">⚠️ Please answer all 6 questions before seeing your result!</p>' +
+            '<p style="margin-top: 10px; font-size: 16px;">You have ' + (6 - answers.length) + ' question(s) left to answer.</p>' +
+            '</div>';
+        return;
+    }
+
+    let counts = {};
+    answers.forEach(a => counts[a] = (counts[a]||0) + 1);
+
+    let best = Object.keys(counts).reduce((a,b)=> counts[a] > counts[b] ? a : b);
+
+    // Using YOUR actual images from PostImage
+    let results = {
+        "Södermalm": {
+            description: "You match <span class='district-name'>Södermalm</span>. Creative, expressive, and drawn to unique environments. You thrive in artistic communities and love discovering hidden gems.",
+            imageUrl: "https://i.postimg.cc/q7zXVbBR/IMG-20251203-WA0001.jpg",
+            altText: "Södermalm Stockholm - artistic and alternative district"
+        },
+        "Östermalm": {
+            description: "You match <span class='district-name'>Östermalm</span>. Refined, elegant, and naturally drawn to luxury and calm order. You appreciate fine things and sophisticated atmospheres.",
+            imageUrl: "https://i.postimg.cc/zGMHWJ55/IMG-20251203-WA0002.jpg",
+            altText: "Östermalm Stockholm - elegant and luxurious district"
+        },
+        "Gamla Stan": {
+            description: "You match <span class='district-name'>Gamla Stan</span>. Deep, classic, warm, and connected to meaningful and quiet places. You value history, tradition, and cozy atmospheres.",
+            imageUrl: "https://i.postimg.cc/FzD7KvGy/galma-stan.jpg",
+            altText: "Gamla Stan Stockholm - historic old town with cobblestone streets"
+        },
+        "Norrmalm": {
+            description: "You match <span class='district-name'>Norrmalm</span>. Energetic, modern, dynamic, and always in the center of action. You love the hustle and bustle of city life.",
+            imageUrl: "https://i.postimg.cc/vHZ4N1Zb/norrlmam.jpg",
+            altText: "Norrmalm Stockholm - modern city center with shopping streets"
+        }
+    };
+
+    let result = results[best];
+    
+    let resultHTML = `
+        <div class="result-title">🎯 Your Stockholm Match Found!</div>
+        <div class="result-description">${result.description}</div>
+        <img src="${result.imageUrl}" 
+             alt="${result.altText}" 
+             class="district-image"
+             onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML+='<p style=\'color:red;text-align:center;\'>Image failed to load, but your result is: ${best}</p>'">
+        <div class="score-display">
+            <strong>Your selection breakdown:</strong><br>
+            🏆 ${best}: ${counts[best]} votes<br>
+            ${Object.entries(counts).filter(([district]) => district !== best).map(([district, count]) => `${district}: ${count} votes`).join(' • ')}
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="restart-btn" onclick="window.location.reload()">🔄 Take Quiz Again</button>
+        </div>
+    `;
+
+    document.getElementById("result").innerHTML = resultHTML;
+    
+    // Scroll to result with smooth animation
+    document.getElementById("result").scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+</script>
+
+</body>
+</html>
